@@ -1,0 +1,155 @@
+# Local demo: PostgreSQL trust, fixed MinIO credentials, loopback host ports.
+services:
+  lakehouse-pg:
+    image: postgres@sha256:67f41722b7a8cbdb868a44a4995c846eddfdc2973bccb291ce937dce88ad5675
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lakekeeper
+      POSTGRES_DB: lakekeeper
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "127.0.0.1:${PG_PORT:-5432}:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+    mem_limit: 512m
+    networks: [lakehouse]
+
+  migrate:
+    image: quay.io/lakekeeper/catalog:v0.13.1@sha256:4749ee267a4524502f9786e3f7eb8d34c8fe2a7b316d232bab80ca47563d7c68
+    restart: "no"
+    command: [migrate]
+    environment: &lakekeeper-env
+      LAKEKEEPER__PG_DATABASE_URL_READ: postgresql://lakekeeper@lakehouse-pg:5432/lakekeeper
+      LAKEKEEPER__PG_DATABASE_URL_WRITE: postgresql://lakekeeper@lakehouse-pg:5432/lakekeeper
+      LAKEKEEPER__PG_ENCRYPTION_KEY: ${LAKEKEEPER_ENCRYPTION_KEY:-This-is-NOT-Secure!}
+      LAKEKEEPER__ENABLE_DEFAULT_PROJECT: "true"
+      RUST_LOG: info
+    depends_on:
+      lakehouse-pg:
+        condition: service_healthy
+    networks: [lakehouse]
+
+  lakehouse-minio:
+    image: lakehouse/minio-local:RELEASE.2025-09-07T16-13-09Z
+    pull_policy: never
+    restart: unless-stopped
+    command: [server, /data, --console-address, ':9001']
+    environment: &minio-env
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    ports:
+      - "127.0.0.1:${MINIO_PORT:-9000}:9000"
+      - "127.0.0.1:${MINIO_CONSOLE_PORT:-9001}:9001"
+    volumes:
+      - minio-data:/data
+    healthcheck:
+      test: [CMD, curl, -fsS, http://localhost:9000/minio/health/ready]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+    mem_limit: 512m
+    networks: [lakehouse]
+
+  minio-init:
+    image: lakehouse/minio-local:RELEASE.2025-09-07T16-13-09Z
+    pull_policy: never
+    restart: "no"
+    entrypoint: [/bin/sh, -c]
+    command:
+      - >-
+        mc alias set local http://lakehouse-minio:9000 "$${MINIO_ROOT_USER}" "$${MINIO_ROOT_PASSWORD}" >/dev/null &&
+        mc mb --ignore-existing local/bench
+    environment: *minio-env
+    depends_on:
+      lakehouse-minio:
+        condition: service_healthy
+    networks: [lakehouse]
+
+  lakekeeper:
+    image: quay.io/lakekeeper/catalog:v0.13.1@sha256:4749ee267a4524502f9786e3f7eb8d34c8fe2a7b316d232bab80ca47563d7c68
+    restart: unless-stopped
+    command: [serve]
+    environment: *lakekeeper-env
+    ports:
+      - "127.0.0.1:${LAKEKEEPER_PORT:-8181}:8181"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      minio-init:
+        condition: service_completed_successfully
+      lakehouse-pg:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, /home/nonroot/lakekeeper, healthcheck, -a]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 15s
+    mem_limit: 512m
+    networks: [lakehouse]
+
+  trino:
+    image: trinodb/trino@sha256:00125e40d063bc4816d165482f6044872b18b56026fb959d3b28ce1f96ffbbee
+    restart: unless-stopped
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      CATALOG_MANAGEMENT: static
+    ports:
+      - "127.0.0.1:${TRINO_PORT:-8080}:8080"
+    volumes:
+      - ./trino/catalog:/etc/trino/catalog:ro
+      - ./trino/jvm.config:/etc/trino/jvm.config:ro
+      - ./trino/config.properties:/etc/trino/config.properties:ro
+    depends_on:
+      lakekeeper:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, /usr/lib/trino/bin/health-check]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+    mem_limit: 8g
+    cpus: 4
+    networks: [lakehouse]
+
+  spark-thrift:
+    build: ./spark
+    restart: unless-stopped
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      AWS_REGION: us-east-1
+      AWS_DEFAULT_REGION: us-east-1
+    ports:
+      - "127.0.0.1:${SPARK_PORT:-10000}:10000"
+      - "127.0.0.1:${SPARK_UI_PORT:-4040}:4040"
+    depends_on:
+      lakekeeper:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD-SHELL, '/opt/spark/bin/beeline -u jdbc:hive2://localhost:10000/default -n healthcheck --silent=true --outputformat=tsv2 -e "SELECT 1" >/dev/null 2>&1']
+      interval: 60s
+      timeout: 25s
+      retries: 3
+      start_period: 60s
+    stop_grace_period: 30s
+    mem_limit: 4g
+    cpus: 4
+    networks: [lakehouse]
+
+networks:
+  lakehouse:
+    driver: bridge
+
+volumes:
+  pg-data:
+  minio-data:

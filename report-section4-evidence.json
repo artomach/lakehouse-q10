@@ -1,0 +1,946 @@
+{
+  "CollectedAt": "2026-10-13T23:47:01.8656289+03:00",
+  "Tables": [
+    {
+      "Schema": "bronze",
+      "Table": "customer",
+      "Rows": 1500000,
+      "Bytes": 81759223,
+      "MB": 81.759223,
+      "DataFileCount": 2,
+      "MetadataRows": 1500000,
+      "Columns": [
+        [
+          "custkey",
+          "bigint"
+        ],
+        [
+          "name",
+          "varchar"
+        ],
+        [
+          "address",
+          "varchar"
+        ],
+        [
+          "nationkey",
+          "bigint"
+        ],
+        [
+          "phone",
+          "varchar"
+        ],
+        [
+          "acctbal",
+          "double"
+        ],
+        [
+          "mktsegment",
+          "varchar"
+        ],
+        [
+          "comment",
+          "varchar"
+        ]
+      ],
+      "DDL": "CREATE TABLE bench.bronze.customer (\n   custkey bigint,\n   name varchar,\n   address varchar,\n   nationkey bigint,\n   phone varchar,\n   acctbal double,\n   mktsegment varchar,\n   comment varchar\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/customer-c348ff18406349ad96327c7184e6e14c',\n   max_commit_retry = 4\n)",
+      "Files": [
+        [
+          "s3://bench/warehouse/customer-c348ff18406349ad96327c7184e6e14c/data/20261013_193739_00005_tqu2s-637e2337-72f2-44b2-a991-4950d266c9eb.parquet",
+          58375693,
+          1070694,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/customer-c348ff18406349ad96327c7184e6e14c/data/20261013_193739_00005_tqu2s-8dbbec8f-a230-4ee6-814c-20829de7e64a.parquet",
+          23383530,
+          429306,
+          "PARQUET"
+        ]
+      ],
+      "CompressionCodecs": [
+        "ZSTD"
+      ],
+      "FooterFilesChecked": 2,
+      "FooterRows": 1500000
+    },
+    {
+      "Schema": "bronze",
+      "Table": "orders",
+      "Rows": 15000000,
+      "Bytes": 390741564,
+      "MB": 390.741564,
+      "DataFileCount": 80,
+      "MetadataRows": 15000000,
+      "Columns": [
+        [
+          "orderkey",
+          "bigint"
+        ],
+        [
+          "custkey",
+          "bigint"
+        ],
+        [
+          "orderstatus",
+          "varchar"
+        ],
+        [
+          "totalprice",
+          "double"
+        ],
+        [
+          "orderdate",
+          "date"
+        ],
+        [
+          "orderpriority",
+          "varchar"
+        ],
+        [
+          "clerk",
+          "varchar"
+        ],
+        [
+          "shippriority",
+          "integer"
+        ],
+        [
+          "comment",
+          "varchar"
+        ]
+      ],
+      "DDL": "CREATE TABLE bench.bronze.orders (\n   orderkey bigint,\n   custkey bigint,\n   orderstatus varchar,\n   totalprice double,\n   orderdate date,\n   orderpriority varchar,\n   clerk varchar,\n   shippriority integer,\n   comment varchar\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d',\n   max_commit_retry = 4,\n   partitioning = ARRAY['month(orderdate)']\n)",
+      "Files": [
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-01/20261013_193749_00006_tqu2s-45371741-8fb2-444f-870f-1a310ed91435.parquet",
+          5035424,
+          193431,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-02/20261013_193749_00006_tqu2s-40aeaabe-b38f-4bad-9299-627a3f92ab92.parquet",
+          4713159,
+          180901,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-03/20261013_193749_00006_tqu2s-9b8cd058-880d-4248-9a2c-7c9790d72024.parquet",
+          5008371,
+          192413,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-04/20261013_193749_00006_tqu2s-ef9625fe-7c7e-4d07-9c6e-2b967802da13.parquet",
+          4870650,
+          187071,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-05/20261013_193749_00006_tqu2s-7876a523-8407-4a2a-8ad4-9f40be4695e5.parquet",
+          5021317,
+          192949,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-06/20261013_193749_00006_tqu2s-ca33dc50-b080-4e1e-bd1d-301ca53f2a98.parquet",
+          4870245,
+          186988,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-07/20261013_193749_00006_tqu2s-0f95eab2-09cf-4f7a-93fd-568d8ae51a04.parquet",
+          5035224,
+          193395,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-08/20261013_193749_00006_tqu2s-885a34ff-31be-4b17-8a59-90fdddb1d449.parquet",
+          5026054,
+          193065,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-09/20261013_193749_00006_tqu2s-d342e701-59b3-459d-9632-607cc5ad7864.parquet",
+          4856897,
+          186582,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-10/20261013_193749_00006_tqu2s-2204c82f-870e-4d3a-845e-dcd9d4effda4.parquet",
+          5035164,
+          193312,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-11/20261013_193749_00006_tqu2s-e80d32bc-305c-423f-8cda-516c9e2952de.parquet",
+          4882349,
+          187370,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1992-12/20261013_193749_00006_tqu2s-f05e6be5-182b-43c0-a9f2-fb730d09954f.parquet",
+          5040890,
+          193728,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-01/20261013_193749_00006_tqu2s-27cdcec4-ce49-4b2e-89d6-d2caeaaa15be.parquet",
+          5049077,
+          194032,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-02/20261013_193749_00006_tqu2s-6854ba57-d7c1-4f4f-b389-8a67010383da.parquet",
+          4565879,
+          175275,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-03/20261013_193749_00006_tqu2s-ee4a030d-b581-4f1b-8cd5-c75f433e36a3.parquet",
+          5019581,
+          192790,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-04/20261013_193749_00006_tqu2s-f9513e8f-5803-4592-b38b-62661889a2e7.parquet",
+          4870125,
+          187053,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-05/20261013_193749_00006_tqu2s-21bdb03d-2da5-4a93-93e0-3bdb18632ede.parquet",
+          5036146,
+          193487,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-06/20261013_193749_00006_tqu2s-cb29251f-32c3-4107-bd61-af5212460eb5.parquet",
+          4875863,
+          187173,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-07/20261013_193749_00006_tqu2s-e4815532-bca6-4986-a852-315908c8371f.parquet",
+          5022226,
+          192884,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-08/20261013_193749_00006_tqu2s-22f8dc5a-b45b-4df1-9fba-99b11329d1c8.parquet",
+          5042123,
+          193634,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-09/20261013_193749_00006_tqu2s-5c49ffce-5544-4c12-8f47-2ae961a2ef44.parquet",
+          4875340,
+          187153,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-10/20261013_193749_00006_tqu2s-51f9c621-1a84-402f-b9f5-5e93427032df.parquet",
+          5019532,
+          192848,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-11/20261013_193749_00006_tqu2s-f7265bbf-9463-4ceb-a24e-810cc74ba958.parquet",
+          4877385,
+          187286,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1993-12/20261013_193749_00006_tqu2s-e1ad96e0-b3e9-4fc0-8de0-1c82546bc3e2.parquet",
+          5028237,
+          193023,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-01/20261013_193749_00006_tqu2s-d6821a7b-fea0-4ac4-b3ea-843410b5d33e.parquet",
+          5031610,
+          193221,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-02/20261013_193749_00006_tqu2s-632a0e0f-00be-4d69-baa9-a391376f7c92.parquet",
+          4538512,
+          174180,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-03/20261013_193749_00006_tqu2s-1dc017e1-a848-4440-af0a-e79900e9b84c.parquet",
+          5018798,
+          192773,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-04/20261013_193749_00006_tqu2s-fabc798a-2fb2-4136-8806-53615920b253.parquet",
+          4878978,
+          187318,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-05/20261013_193749_00006_tqu2s-f5c94626-69ee-4626-b58e-3c9ac1e6c77d.parquet",
+          5026298,
+          192979,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-06/20261013_193749_00006_tqu2s-da447722-cc11-4f31-b91a-d9051ca73fda.parquet",
+          4890698,
+          187841,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-07/20261013_193749_00006_tqu2s-7d4989cd-0929-4619-a698-e7128fd1b5f9.parquet",
+          5027293,
+          193213,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-08/20261013_193749_00006_tqu2s-3a80efae-c0a0-4ba5-8904-9a5b141c2c8a.parquet",
+          5030003,
+          193227,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-09/20261013_193749_00006_tqu2s-78350714-1f93-4d5f-9e67-df010c1ba285.parquet",
+          4866253,
+          186790,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-10/20261013_193749_00006_tqu2s-243249c6-c37f-45db-a20d-bc5d61af59a1.parquet",
+          5027835,
+          193143,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-11/20261013_193749_00006_tqu2s-b2b015f4-e51b-466a-9b0c-a08d4dfbb52b.parquet",
+          4891459,
+          187834,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1994-12/20261013_193749_00006_tqu2s-d9194a4f-abe6-4400-9589-33e6a11301a8.parquet",
+          5035911,
+          193400,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-01/20261013_193749_00006_tqu2s-0a198024-cca2-4ae7-98ef-f855357b87a3.parquet",
+          5050066,
+          193902,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-02/20261013_193749_00006_tqu2s-446c12bb-7998-4d17-be3a-edefba83555a.parquet",
+          4552633,
+          173991,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-03/20261013_193749_00006_tqu2s-2576257c-028f-4468-ab95-81a7dd585a83.parquet",
+          5071310,
+          193719,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-04/20261013_193749_00006_tqu2s-1d2960ea-6da0-4676-9b2c-196e158ad4be.parquet",
+          4903236,
+          187016,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-05/20261013_193749_00006_tqu2s-3b376cc2-c04f-43c4-853e-08dfcbe6ccee.parquet",
+          5057582,
+          193116,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-06/20261013_193749_00006_tqu2s-31523f65-facf-49a7-a743-c0456506914d.parquet",
+          4889963,
+          186946,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-07/20261013_193749_00006_tqu2s-55547ff2-617d-4651-81c6-7b2013530a58.parquet",
+          5038653,
+          193607,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-08/20261013_193749_00006_tqu2s-8a421ced-0e71-4106-99d2-ccd65f8f0989.parquet",
+          5031019,
+          193223,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-09/20261013_193749_00006_tqu2s-79efe674-f255-4ac8-9205-af93b31307e9.parquet",
+          4875001,
+          187281,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-10/20261013_193749_00006_tqu2s-5e4e47a3-81b8-4601-aa7d-74ced30cc4dd.parquet",
+          5024150,
+          193057,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-11/20261013_193749_00006_tqu2s-be194782-7042-4498-bb32-f854cedf6504.parquet",
+          4859234,
+          186510,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1995-12/20261013_193749_00006_tqu2s-c1757f5e-b563-492a-9c74-637c5147bba0.parquet",
+          5032215,
+          193207,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-01/20261013_193749_00006_tqu2s-51ff0333-1e51-4032-9ea6-e7a660ef21c9.parquet",
+          5023371,
+          192898,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-02/20261013_193749_00006_tqu2s-951efeba-f9f9-45d4-9b98-a22b5310ad31.parquet",
+          4702307,
+          180548,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-03/20261013_193749_00006_tqu2s-dc014f83-b082-4e16-a7c8-33d5105ebe60.parquet",
+          5039735,
+          193653,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-04/20261013_193749_00006_tqu2s-bf6350f4-c244-4180-8270-375e57036112.parquet",
+          4869456,
+          186910,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-05/20261013_193749_00006_tqu2s-8f35e0f4-52e8-4c8c-afcf-17faef10057c.parquet",
+          5036898,
+          193581,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-06/20261013_193749_00006_tqu2s-b03f9e6f-f97e-45a6-850c-d2de0ec105ae.parquet",
+          4855098,
+          186443,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-07/20261013_193749_00006_tqu2s-40410051-8016-4139-9614-38c0d1c2ae80.parquet",
+          5046744,
+          193931,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-08/20261013_193749_00006_tqu2s-4b15c474-f28d-4899-b7cb-9ca48058cc1a.parquet",
+          5049309,
+          193921,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-09/20261013_193749_00006_tqu2s-51f4ed0b-4d08-4540-ad46-a20cd4d8524f.parquet",
+          4859940,
+          186615,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-10/20261013_193749_00006_tqu2s-4c67535c-825d-4cd2-b031-63a6ded54796.parquet",
+          5023948,
+          192877,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-11/20261013_193749_00006_tqu2s-b123c3c7-e085-43fe-acc0-f4aac22beef4.parquet",
+          4867641,
+          186851,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1996-12/20261013_193749_00006_tqu2s-5fa3bb78-4a8c-43b5-be1b-1517ce0672c8.parquet",
+          5042337,
+          193710,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-01/20261013_193749_00006_tqu2s-77767672-f4ec-47ff-bce5-2b7a07f38384.parquet",
+          5038476,
+          193661,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-02/20261013_193749_00006_tqu2s-cce38717-8082-4c16-9cea-e81e58b7f090.parquet",
+          4553450,
+          174604,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-03/20261013_193749_00006_tqu2s-80ee7868-8423-4f77-a128-3ed37bb20071.parquet",
+          5028950,
+          193173,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-04/20261013_193749_00006_tqu2s-fa8e005c-eda9-425d-9e09-8757060b1b7a.parquet",
+          4877007,
+          187126,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-05/20261013_193749_00006_tqu2s-6fee8dec-029e-4843-8844-4daab130e1b9.parquet",
+          5036590,
+          193342,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-06/20261013_193749_00006_tqu2s-4b16efa8-e8d1-4f48-93d6-9c97eafddc0e.parquet",
+          4871877,
+          187241,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-07/20261013_193749_00006_tqu2s-3f115760-68c7-43d8-96f8-2eb77c80f13b.parquet",
+          5029554,
+          193284,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-08/20261013_193749_00006_tqu2s-ea35a4de-3c51-412b-b1f6-cc68b9eb7509.parquet",
+          5044997,
+          193801,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-09/20261013_193749_00006_tqu2s-734d3590-6eeb-4394-a7d0-092d947f4344.parquet",
+          4864613,
+          186877,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-10/20261013_193749_00006_tqu2s-7ca9e8ec-4783-43aa-b9f6-a96069c3eac1.parquet",
+          5026028,
+          193022,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-11/20261013_193749_00006_tqu2s-d6a0bd17-6c9e-471e-9557-8755d5904105.parquet",
+          4859735,
+          186487,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1997-12/20261013_193749_00006_tqu2s-26871203-ca1e-4672-90b2-d90493b7572c.parquet",
+          5024003,
+          192893,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1998-01/20261013_193749_00006_tqu2s-e86d549b-5be3-4149-9db3-fae46608af8c.parquet",
+          5028466,
+          193016,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1998-02/20261013_193749_00006_tqu2s-028a90be-9970-41d9-8fa8-fb5515c3f6ab.parquet",
+          4550770,
+          174605,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1998-03/20261013_193749_00006_tqu2s-3f0098ce-c963-47df-a083-5832e290285e.parquet",
+          5029176,
+          193144,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1998-04/20261013_193749_00006_tqu2s-f0c6dd46-d426-406b-a6e2-e7508ed2975a.parquet",
+          4864753,
+          186753,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1998-05/20261013_193749_00006_tqu2s-7fb2e19f-38de-4d98-867b-ee5c17570d48.parquet",
+          5042771,
+          193587,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1998-06/20261013_193749_00006_tqu2s-e98b9c76-7938-4084-98f4-bda3fb1904b0.parquet",
+          4846745,
+          186120,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1998-07/20261013_193749_00006_tqu2s-bdf788a7-76a9-4b28-baf4-5902f5516d16.parquet",
+          5035511,
+          193523,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/orders-0b0ae6d6c4614a34a013dbad4165063d/data/orderdate_month=1998-08/20261013_193749_00006_tqu2s-11dfc34a-dadb-4b74-bd88-d4555525f1f0.parquet",
+          345340,
+          12466,
+          "PARQUET"
+        ]
+      ],
+      "CompressionCodecs": [
+        "ZSTD"
+      ],
+      "FooterFilesChecked": 80,
+      "FooterRows": 15000000
+    },
+    {
+      "Schema": "bronze",
+      "Table": "lineitem",
+      "Rows": 59986052,
+      "Bytes": 1663645796,
+      "MB": 1663.645796,
+      "DataFileCount": 2,
+      "MetadataRows": 59986052,
+      "Columns": [
+        [
+          "orderkey",
+          "bigint"
+        ],
+        [
+          "partkey",
+          "bigint"
+        ],
+        [
+          "suppkey",
+          "bigint"
+        ],
+        [
+          "linenumber",
+          "integer"
+        ],
+        [
+          "quantity",
+          "double"
+        ],
+        [
+          "extendedprice",
+          "double"
+        ],
+        [
+          "discount",
+          "double"
+        ],
+        [
+          "tax",
+          "double"
+        ],
+        [
+          "returnflag",
+          "varchar"
+        ],
+        [
+          "linestatus",
+          "varchar"
+        ],
+        [
+          "shipdate",
+          "date"
+        ],
+        [
+          "commitdate",
+          "date"
+        ],
+        [
+          "receiptdate",
+          "date"
+        ],
+        [
+          "shipinstruct",
+          "varchar"
+        ],
+        [
+          "shipmode",
+          "varchar"
+        ],
+        [
+          "comment",
+          "varchar"
+        ]
+      ],
+      "DDL": "CREATE TABLE bench.bronze.lineitem (\n   orderkey bigint,\n   partkey bigint,\n   suppkey bigint,\n   linenumber integer,\n   quantity double,\n   extendedprice double,\n   discount double,\n   tax double,\n   returnflag varchar,\n   linestatus varchar,\n   shipdate date,\n   commitdate date,\n   receiptdate date,\n   shipinstruct varchar,\n   shipmode varchar,\n   comment varchar\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/lineitem-7bd0c1909e0643d29963544a1907f09b',\n   max_commit_retry = 4\n)",
+      "Files": [
+        [
+          "s3://bench/warehouse/lineitem-7bd0c1909e0643d29963544a1907f09b/data/20261013_193822_00007_tqu2s-d79322d2-c235-4ca0-a519-55b78ba2ccd9.parquet",
+          843010550,
+          30395704,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/lineitem-7bd0c1909e0643d29963544a1907f09b/data/20261013_193822_00007_tqu2s-fc051fb3-726a-410d-8480-9570caba051e.parquet",
+          820635246,
+          29590348,
+          "PARQUET"
+        ]
+      ],
+      "CompressionCodecs": [
+        "ZSTD"
+      ],
+      "FooterFilesChecked": 2,
+      "FooterRows": 59986052
+    },
+    {
+      "Schema": "bronze",
+      "Table": "nation",
+      "Rows": 25,
+      "Bytes": 1881,
+      "MB": 0.001881,
+      "DataFileCount": 1,
+      "MetadataRows": 25,
+      "Columns": [
+        [
+          "nationkey",
+          "bigint"
+        ],
+        [
+          "name",
+          "varchar"
+        ],
+        [
+          "regionkey",
+          "bigint"
+        ],
+        [
+          "comment",
+          "varchar"
+        ]
+      ],
+      "DDL": "CREATE TABLE bench.bronze.nation (\n   nationkey bigint,\n   name varchar,\n   regionkey bigint,\n   comment varchar\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/nation-3b6927c53bc144fba2a56723e48b4540',\n   max_commit_retry = 4\n)",
+      "Files": [
+        [
+          "s3://bench/warehouse/nation-3b6927c53bc144fba2a56723e48b4540/data/20261013_193955_00012_tqu2s-73ae366c-73a5-43b0-a22c-b56b8037807c.parquet",
+          1881,
+          25,
+          "PARQUET"
+        ]
+      ],
+      "CompressionCodecs": [
+        "ZSTD"
+      ],
+      "FooterFilesChecked": 1,
+      "FooterRows": 25
+    },
+    {
+      "Schema": "silver",
+      "Table": "customer_nation",
+      "Rows": 1500000,
+      "Bytes": 81392123,
+      "MB": 81.392123,
+      "DataFileCount": 2,
+      "MetadataRows": 1500000,
+      "Columns": [
+        [
+          "custkey",
+          "bigint"
+        ],
+        [
+          "name",
+          "varchar"
+        ],
+        [
+          "acctbal",
+          "double"
+        ],
+        [
+          "nation",
+          "varchar"
+        ],
+        [
+          "address",
+          "varchar"
+        ],
+        [
+          "phone",
+          "varchar"
+        ],
+        [
+          "comment",
+          "varchar"
+        ]
+      ],
+      "DDL": "CREATE TABLE bench.silver.customer_nation (\n   custkey bigint,\n   name varchar,\n   acctbal double,\n   nation varchar,\n   address varchar,\n   phone varchar,\n   comment varchar\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/customer_nation-321798a6c4834c88b06cd02a4c1a46f4',\n   max_commit_retry = 4\n)",
+      "Files": [
+        [
+          "s3://bench/warehouse/customer_nation-321798a6c4834c88b06cd02a4c1a46f4/data/20261013_203146_00024_tqu2s-1d2d7aa5-c604-4639-9878-e52817afe19f.parquet",
+          59780811,
+          1101454,
+          "PARQUET"
+        ],
+        [
+          "s3://bench/warehouse/customer_nation-321798a6c4834c88b06cd02a4c1a46f4/data/20261013_203146_00024_tqu2s-a956170e-933a-4fe7-80a4-99e611807160.parquet",
+          21611312,
+          398546,
+          "PARQUET"
+        ]
+      ],
+      "CompressionCodecs": [
+        "ZSTD"
+      ],
+      "FooterFilesChecked": 2,
+      "FooterRows": 1500000
+    },
+    {
+      "Schema": "silver",
+      "Table": "orders_q4_1993",
+      "Rows": 573157,
+      "Bytes": 3558605,
+      "MB": 3.558605,
+      "DataFileCount": 1,
+      "MetadataRows": 573157,
+      "Columns": [
+        [
+          "orderkey",
+          "bigint"
+        ],
+        [
+          "custkey",
+          "bigint"
+        ],
+        [
+          "orderdate",
+          "date"
+        ]
+      ],
+      "DDL": "CREATE TABLE bench.silver.orders_q4_1993 (\n   orderkey bigint,\n   custkey bigint,\n   orderdate date\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/orders_q4_1993-ff9c5737f68146c48d5f95625e56550c',\n   max_commit_retry = 4\n)",
+      "Files": [
+        [
+          "s3://bench/warehouse/orders_q4_1993-ff9c5737f68146c48d5f95625e56550c/data/20261013_203205_00025_tqu2s-f5eee697-4f2f-4ab4-a225-b928a4c39c4d.parquet",
+          3558605,
+          573157,
+          "PARQUET"
+        ]
+      ],
+      "CompressionCodecs": [
+        "ZSTD"
+      ],
+      "FooterFilesChecked": 1,
+      "FooterRows": 573157
+    },
+    {
+      "Schema": "silver",
+      "Table": "returned_items_q4_1993",
+      "Rows": 1147084,
+      "Bytes": 10714631,
+      "MB": 10.714631,
+      "DataFileCount": 1,
+      "MetadataRows": 1147084,
+      "Columns": [
+        [
+          "custkey",
+          "bigint"
+        ],
+        [
+          "orderkey",
+          "bigint"
+        ],
+        [
+          "orderdate",
+          "date"
+        ],
+        [
+          "linenumber",
+          "integer"
+        ],
+        [
+          "extendedprice",
+          "double"
+        ],
+        [
+          "discount",
+          "double"
+        ],
+        [
+          "returnflag",
+          "varchar"
+        ]
+      ],
+      "DDL": "CREATE TABLE bench.silver.returned_items_q4_1993 (\n   custkey bigint,\n   orderkey bigint,\n   orderdate date,\n   linenumber integer,\n   extendedprice double,\n   discount double,\n   returnflag varchar\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/returned_items_q4_1993-39b037a91e564ca2869567d456440bb5',\n   max_commit_retry = 4\n)",
+      "Files": [
+        [
+          "s3://bench/warehouse/returned_items_q4_1993-39b037a91e564ca2869567d456440bb5/data/20261013_203215_00026_tqu2s-cd0db1d0-8620-4a9b-8b99-7bee5d344619.parquet",
+          10714631,
+          1147084,
+          "PARQUET"
+        ]
+      ],
+      "CompressionCodecs": [
+        "ZSTD"
+      ],
+      "FooterFilesChecked": 1,
+      "FooterRows": 1147084
+    },
+    {
+      "Schema": "gold",
+      "Table": "q10_top20_customers",
+      "Rows": 20,
+      "Bytes": 3361,
+      "MB": 0.003361,
+      "DataFileCount": 1,
+      "MetadataRows": 20,
+      "Columns": [
+        [
+          "custkey",
+          "bigint"
+        ],
+        [
+          "name",
+          "varchar"
+        ],
+        [
+          "revenue",
+          "double"
+        ],
+        [
+          "acctbal",
+          "double"
+        ],
+        [
+          "nation",
+          "varchar"
+        ],
+        [
+          "address",
+          "varchar"
+        ],
+        [
+          "phone",
+          "varchar"
+        ],
+        [
+          "comment",
+          "varchar"
+        ]
+      ],
+      "DDL": "CREATE TABLE bench.gold.q10_top20_customers (\n   custkey bigint,\n   name varchar,\n   revenue double,\n   acctbal double,\n   nation varchar,\n   address varchar,\n   phone varchar,\n   comment varchar\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/q10_top20_customers-97a9b570cfe341a09203aa0fd0320f1c',\n   max_commit_retry = 4\n)",
+      "Files": [
+        [
+          "s3://bench/warehouse/q10_top20_customers-97a9b570cfe341a09203aa0fd0320f1c/data/20261013_204255_00046_tqu2s-9ca693a6-079e-4418-bb87-3c83e9ab6626.parquet",
+          3361,
+          20,
+          "PARQUET"
+        ]
+      ],
+      "CompressionCodecs": [
+        "ZSTD"
+      ],
+      "FooterFilesChecked": 1,
+      "FooterRows": 20
+    }
+  ],
+  "CodecVerification": "All current data files: actual column chunk codecs read from Parquet footers using ranged S3 GET; footer row counts cross-checked with SQL COUNT and Iceberg files metadata"
+}

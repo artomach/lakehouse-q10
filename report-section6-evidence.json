@@ -1,0 +1,2167 @@
+{
+  "CollectedAt": "2026-10-14T00:08:39.518293+03:00",
+  "DemoTable": "bench.silver.q10_evolution_demo",
+  "TrinoOperations": [
+    {
+      "SQL": "SELECT table_name FROM bench.information_schema.tables WHERE table_schema='silver' AND table_name='q10_evolution_demo'",
+      "QueryId": "20261013_210839_00148_tqu2s",
+      "Rows": [],
+      "Columns": [
+        {
+          "name": "table_name",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 1,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 1,
+        "planningTimeMillis": 9,
+        "analysisTimeMillis": 2,
+        "cpuTimeMillis": 4,
+        "wallTimeMillis": 11,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 34,
+        "finishingTimeMillis": 0,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 3,
+        "processedBytes": 99,
+        "physicalInputBytes": 99,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 0,
+        "peakMemoryBytes": 80,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 4,
+          "wallTimeMillis": 11,
+          "processedRows": 3,
+          "processedBytes": 99,
+          "physicalInputBytes": 99,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": []
+        }
+      }
+    },
+    {
+      "SQL": "CREATE TABLE bench.silver.q10_evolution_demo WITH (format='PARQUET') AS SELECT * FROM bench.silver.customer_nation ORDER BY custkey LIMIT 10",
+      "QueryId": "20261013_210839_00149_tqu2s",
+      "Rows": [
+        [
+          10
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "rows",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 28,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 28,
+        "planningTimeMillis": 45,
+        "analysisTimeMillis": 10,
+        "cpuTimeMillis": 1209,
+        "wallTimeMillis": 2606,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 678,
+        "finishingTimeMillis": 1,
+        "physicalInputTimeMillis": 294,
+        "processedRows": 1500000,
+        "processedBytes": 81730334,
+        "physicalInputBytes": 81730334,
+        "physicalWrittenBytes": 2226,
+        "internalNetworkInputBytes": 6854,
+        "peakMemoryBytes": 4678,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 12,
+          "wallTimeMillis": 151,
+          "processedRows": 5,
+          "processedBytes": 2908,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": true,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 6,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 6,
+              "cpuTimeMillis": 6,
+              "wallTimeMillis": 14,
+              "processedRows": 10,
+              "processedBytes": 1973,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "2",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 5,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 5,
+                  "cpuTimeMillis": 1,
+                  "wallTimeMillis": 1,
+                  "processedRows": 10,
+                  "processedBytes": 1973,
+                  "physicalInputBytes": 0,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": [
+                    {
+                      "stageId": "3",
+                      "state": "FINISHED",
+                      "done": true,
+                      "nodes": 1,
+                      "totalSplits": 12,
+                      "queuedSplits": 0,
+                      "runningSplits": 0,
+                      "completedSplits": 12,
+                      "cpuTimeMillis": 1190,
+                      "wallTimeMillis": 2440,
+                      "processedRows": 1500000,
+                      "processedBytes": 81730334,
+                      "physicalInputBytes": 81730334,
+                      "failedTasks": 0,
+                      "coordinatorOnly": false,
+                      "subStages": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "SELECT * FROM bench.silver.q10_evolution_demo ORDER BY custkey",
+      "QueryId": "20261013_210840_00150_tqu2s",
+      "Rows": [
+        [
+          1,
+          "Customer#000000001",
+          711.56,
+          "MOROCCO",
+          "IVhzIApeRb ot,c,E",
+          "25-989-741-2988",
+          "to the even, regular platelets. regular, ironic epitaphs nag e"
+        ],
+        [
+          2,
+          "Customer#000000002",
+          121.65,
+          "JORDAN",
+          "XSTf4,NCwDVaWNe6tEgvwfmRchLXak",
+          "23-768-687-3665",
+          "l accounts. blithely ironic theodolites integrate boldly: caref"
+        ],
+        [
+          3,
+          "Customer#000000003",
+          7498.12,
+          "ARGENTINA",
+          "MG9kdTD2WBHm",
+          "11-719-748-3364",
+          " deposits eat slyly ironic, even instructions. express foxes detect slyly. blithely even accounts abov"
+        ],
+        [
+          4,
+          "Customer#000000004",
+          2866.83,
+          "EGYPT",
+          "XxVSJsLAGtn",
+          "14-128-190-5944",
+          " requests. final, regular ideas sleep final accou"
+        ],
+        [
+          5,
+          "Customer#000000005",
+          794.47,
+          "CANADA",
+          "KvpyuHCplrB84WgAiGV6sYpZq7Tj",
+          "13-750-942-6364",
+          "n accounts will have to unwind. foxes cajole accor"
+        ],
+        [
+          6,
+          "Customer#000000006",
+          7638.57,
+          "SAUDI ARABIA",
+          "sKZz0CsnMD7mp4Xd0YrBvx,LREYKUWAh yVn",
+          "30-114-968-4951",
+          "tions. even deposits boost according to the slyly bold packages. final accounts cajole requests. furious"
+        ],
+        [
+          7,
+          "Customer#000000007",
+          9561.95,
+          "CHINA",
+          "TcGe5gaZNgVePxU5kRrvXBfkasDTea",
+          "28-190-982-9759",
+          "ainst the ironic, express theodolites. express, even pinto beans among the exp"
+        ],
+        [
+          8,
+          "Customer#000000008",
+          6819.74,
+          "PERU",
+          "I0B10bB0AymmC, 0PrRYBCP1yGJ8xcBPmWhl5",
+          "27-147-574-9335",
+          "among the slyly regular theodolites kindle blithely courts. carefully even theodolites haggle slyly along the ide"
+        ],
+        [
+          9,
+          "Customer#000000009",
+          8324.07,
+          "INDIA",
+          "xKiAFTjUsCuxfeleNqefumTrjS",
+          "18-338-906-3675",
+          "r theodolites according to the requests wake thinly excuses: pending requests haggle furiousl"
+        ],
+        [
+          10,
+          "Customer#000000010",
+          2753.54,
+          "ETHIOPIA",
+          "6LrEaV6KR6PLVcgl2ArL Q3rqzLzcT1 v2",
+          "15-741-346-9870",
+          "es regular deposits haggle. fur"
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "custkey",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        },
+        {
+          "name": "name",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "acctbal",
+          "type": "double",
+          "typeSignature": {
+            "rawType": "double",
+            "arguments": []
+          }
+        },
+        {
+          "name": "nation",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "address",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "phone",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "comment",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 7,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 7,
+        "planningTimeMillis": 11,
+        "analysisTimeMillis": 6,
+        "cpuTimeMillis": 5,
+        "wallTimeMillis": 8,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 36,
+        "finishingTimeMillis": 1,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 10,
+        "processedBytes": 2226,
+        "physicalInputBytes": 2226,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 4576,
+        "peakMemoryBytes": 5168,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 0,
+          "wallTimeMillis": 0,
+          "processedRows": 10,
+          "processedBytes": 1973,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 5,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 5,
+              "cpuTimeMillis": 3,
+              "wallTimeMillis": 6,
+              "processedRows": 10,
+              "processedBytes": 2603,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "2",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 1,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 1,
+                  "cpuTimeMillis": 2,
+                  "wallTimeMillis": 2,
+                  "processedRows": 10,
+                  "processedBytes": 2226,
+                  "physicalInputBytes": 2226,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "SELECT file_path,file_size_in_bytes FROM bench.silver.\"q10_evolution_demo$files\" WHERE content=0 ORDER BY file_path",
+      "QueryId": "20261013_210840_00151_tqu2s",
+      "Rows": [
+        [
+          "s3://bench/warehouse/q10_evolution_demo-87fbe106e07346adabb5c61bdfdd89d6/data/20261013_210839_00149_tqu2s-ab3ad02b-f94f-4a4a-b672-a897965d3297.parquet",
+          2226
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "file_path",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "file_size_in_bytes",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 7,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 7,
+        "planningTimeMillis": 9,
+        "analysisTimeMillis": 5,
+        "cpuTimeMillis": 6,
+        "wallTimeMillis": 6,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 32,
+        "finishingTimeMillis": 0,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 1,
+        "processedBytes": 2202,
+        "physicalInputBytes": 2202,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 458,
+        "peakMemoryBytes": 476,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 0,
+          "wallTimeMillis": 0,
+          "processedRows": 1,
+          "processedBytes": 229,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 5,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 5,
+              "cpuTimeMillis": 1,
+              "wallTimeMillis": 1,
+              "processedRows": 1,
+              "processedBytes": 229,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "2",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 1,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 1,
+                  "cpuTimeMillis": 5,
+                  "wallTimeMillis": 5,
+                  "processedRows": 1,
+                  "processedBytes": 2202,
+                  "physicalInputBytes": 2202,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "ALTER TABLE bench.silver.q10_evolution_demo ADD COLUMN note VARCHAR",
+      "QueryId": "20261013_210840_00152_tqu2s",
+      "Rows": [],
+      "Columns": [],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": false,
+        "nodes": 0,
+        "totalSplits": 0,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 0,
+        "planningTimeMillis": 0,
+        "analysisTimeMillis": 0,
+        "cpuTimeMillis": 0,
+        "wallTimeMillis": 0,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 33,
+        "finishingTimeMillis": 0,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 0,
+        "processedBytes": 0,
+        "physicalInputBytes": 0,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 0,
+        "peakMemoryBytes": 0,
+        "spilledBytes": 0
+      }
+    },
+    {
+      "SQL": "SELECT count(*), count(note) FROM bench.silver.q10_evolution_demo",
+      "QueryId": "20261013_210840_00153_tqu2s",
+      "Rows": [
+        [
+          10,
+          0
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "_col0",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        },
+        {
+          "name": "_col1",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 6,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 6,
+        "planningTimeMillis": 9,
+        "analysisTimeMillis": 7,
+        "cpuTimeMillis": 4,
+        "wallTimeMillis": 4,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 45,
+        "finishingTimeMillis": 5,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 10,
+        "processedBytes": 2226,
+        "physicalInputBytes": 2226,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 71,
+        "peakMemoryBytes": 500,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 1,
+          "wallTimeMillis": 1,
+          "processedRows": 1,
+          "processedBytes": 71,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 1,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 1,
+              "cpuTimeMillis": 3,
+              "wallTimeMillis": 3,
+              "processedRows": 10,
+              "processedBytes": 2226,
+              "physicalInputBytes": 2226,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "ALTER TABLE bench.silver.q10_evolution_demo RENAME COLUMN note TO quality_note",
+      "QueryId": "20261013_210840_00154_tqu2s",
+      "Rows": [],
+      "Columns": [],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": false,
+        "nodes": 0,
+        "totalSplits": 0,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 0,
+        "planningTimeMillis": 0,
+        "analysisTimeMillis": 0,
+        "cpuTimeMillis": 0,
+        "wallTimeMillis": 0,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 59,
+        "finishingTimeMillis": 0,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 0,
+        "processedBytes": 0,
+        "physicalInputBytes": 0,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 0,
+        "peakMemoryBytes": 0,
+        "spilledBytes": 0
+      }
+    },
+    {
+      "SQL": "SELECT count(*), count(quality_note) FROM bench.silver.q10_evolution_demo",
+      "QueryId": "20261013_210840_00155_tqu2s",
+      "Rows": [
+        [
+          10,
+          0
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "_col0",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        },
+        {
+          "name": "_col1",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 6,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 6,
+        "planningTimeMillis": 12,
+        "analysisTimeMillis": 9,
+        "cpuTimeMillis": 2,
+        "wallTimeMillis": 2,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 38,
+        "finishingTimeMillis": 0,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 10,
+        "processedBytes": 2226,
+        "physicalInputBytes": 2226,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 71,
+        "peakMemoryBytes": 500,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 1,
+          "wallTimeMillis": 1,
+          "processedRows": 1,
+          "processedBytes": 71,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 1,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 1,
+              "cpuTimeMillis": 1,
+              "wallTimeMillis": 1,
+              "processedRows": 10,
+              "processedBytes": 2226,
+              "physicalInputBytes": 2226,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "SELECT file_path,file_size_in_bytes FROM bench.silver.\"q10_evolution_demo$files\" WHERE content=0 ORDER BY file_path",
+      "QueryId": "20261013_210841_00156_tqu2s",
+      "Rows": [
+        [
+          "s3://bench/warehouse/q10_evolution_demo-87fbe106e07346adabb5c61bdfdd89d6/data/20261013_210839_00149_tqu2s-ab3ad02b-f94f-4a4a-b672-a897965d3297.parquet",
+          2226
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "file_path",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "file_size_in_bytes",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 7,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 7,
+        "planningTimeMillis": 13,
+        "analysisTimeMillis": 7,
+        "cpuTimeMillis": 7,
+        "wallTimeMillis": 7,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 44,
+        "finishingTimeMillis": 4,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 1,
+        "processedBytes": 2342,
+        "physicalInputBytes": 2342,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 458,
+        "peakMemoryBytes": 612,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 0,
+          "wallTimeMillis": 0,
+          "processedRows": 1,
+          "processedBytes": 229,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 5,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 5,
+              "cpuTimeMillis": 1,
+              "wallTimeMillis": 1,
+              "processedRows": 1,
+              "processedBytes": 229,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "2",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 1,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 1,
+                  "cpuTimeMillis": 6,
+                  "wallTimeMillis": 6,
+                  "processedRows": 1,
+                  "processedBytes": 2342,
+                  "physicalInputBytes": 2342,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "SHOW CREATE TABLE bench.silver.q10_evolution_demo",
+      "QueryId": "20261013_210841_00157_tqu2s",
+      "Rows": [
+        [
+          "CREATE TABLE bench.silver.q10_evolution_demo (\n   custkey bigint,\n   name varchar,\n   acctbal double,\n   nation varchar,\n   address varchar,\n   phone varchar,\n   comment varchar,\n   quality_note varchar\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/q10_evolution_demo-87fbe106e07346adabb5c61bdfdd89d6',\n   max_commit_retry = 4\n)"
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "Create Table",
+          "type": "varchar(373)",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 373
+              }
+            ]
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 1,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 1,
+        "planningTimeMillis": 4,
+        "analysisTimeMillis": 8,
+        "cpuTimeMillis": 0,
+        "wallTimeMillis": 0,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 21,
+        "finishingTimeMillis": 2,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 0,
+        "processedBytes": 0,
+        "physicalInputBytes": 0,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 0,
+        "peakMemoryBytes": 523,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 0,
+          "wallTimeMillis": 0,
+          "processedRows": 1,
+          "processedBytes": 0,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": []
+        }
+      }
+    },
+    {
+      "SQL": "SELECT snapshot_id FROM bench.silver.\"q10_evolution_demo$snapshots\" ORDER BY committed_at DESC LIMIT 1",
+      "QueryId": "20261013_210841_00158_tqu2s",
+      "Rows": [
+        [
+          2492711815277284993
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "snapshot_id",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 11,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 11,
+        "planningTimeMillis": 12,
+        "analysisTimeMillis": 8,
+        "cpuTimeMillis": 21,
+        "wallTimeMillis": 27,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 62,
+        "finishingTimeMillis": 1,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 1,
+        "processedBytes": 836,
+        "physicalInputBytes": 836,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 71,
+        "peakMemoryBytes": 252,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 1,
+          "wallTimeMillis": 1,
+          "processedRows": 1,
+          "processedBytes": 71,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 6,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 6,
+              "cpuTimeMillis": 20,
+              "wallTimeMillis": 26,
+              "processedRows": 1,
+              "processedBytes": 836,
+              "physicalInputBytes": 836,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "DELETE FROM bench.silver.q10_evolution_demo WHERE custkey IN (1, 2, 3)",
+      "QueryId": "20261013_210841_00159_tqu2s",
+      "Rows": [
+        [
+          3
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "rows",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 11,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 11,
+        "planningTimeMillis": 31,
+        "analysisTimeMillis": 16,
+        "cpuTimeMillis": 52,
+        "wallTimeMillis": 160,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 238,
+        "finishingTimeMillis": 2,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 10,
+        "processedBytes": 2226,
+        "physicalInputBytes": 2226,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 2178,
+        "peakMemoryBytes": 2258,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 23,
+          "wallTimeMillis": 121,
+          "processedRows": 2,
+          "processedBytes": 1283,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": true,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 5,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 5,
+              "cpuTimeMillis": 24,
+              "wallTimeMillis": 34,
+              "processedRows": 3,
+              "processedBytes": 895,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "2",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 1,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 1,
+                  "cpuTimeMillis": 5,
+                  "wallTimeMillis": 5,
+                  "processedRows": 10,
+                  "processedBytes": 2226,
+                  "physicalInputBytes": 2226,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "SELECT count(*) FROM bench.silver.q10_evolution_demo",
+      "QueryId": "20261013_210841_00160_tqu2s",
+      "Rows": [
+        [
+          7
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "_col0",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 6,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 6,
+        "planningTimeMillis": 6,
+        "analysisTimeMillis": 7,
+        "cpuTimeMillis": 12,
+        "wallTimeMillis": 15,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 56,
+        "finishingTimeMillis": 2,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 7,
+        "processedBytes": 2226,
+        "physicalInputBytes": 2226,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 44,
+        "peakMemoryBytes": 408,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 1,
+          "wallTimeMillis": 1,
+          "processedRows": 1,
+          "processedBytes": 44,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 1,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 1,
+              "cpuTimeMillis": 11,
+              "wallTimeMillis": 14,
+              "processedRows": 7,
+              "processedBytes": 2226,
+              "physicalInputBytes": 2226,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "SELECT count(*) FROM bench.silver.q10_evolution_demo FOR VERSION AS OF 2492711815277284993",
+      "QueryId": "20261013_210841_00161_tqu2s",
+      "Rows": [
+        [
+          10
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "_col0",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 6,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 6,
+        "planningTimeMillis": 6,
+        "analysisTimeMillis": 9,
+        "cpuTimeMillis": 1,
+        "wallTimeMillis": 1,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 46,
+        "finishingTimeMillis": 17,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 10,
+        "processedBytes": 0,
+        "physicalInputBytes": 0,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 44,
+        "peakMemoryBytes": 304,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 1,
+          "wallTimeMillis": 1,
+          "processedRows": 1,
+          "processedBytes": 44,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 1,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 1,
+              "cpuTimeMillis": 0,
+              "wallTimeMillis": 0,
+              "processedRows": 10,
+              "processedBytes": 0,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "SELECT count(*) FROM bench.silver.q10_evolution_demo",
+      "QueryId": "20261013_210935_00163_tqu2s",
+      "Rows": [
+        [
+          7
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "_col0",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 6,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 6,
+        "planningTimeMillis": 6,
+        "analysisTimeMillis": 9,
+        "cpuTimeMillis": 3,
+        "wallTimeMillis": 3,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 47,
+        "finishingTimeMillis": 14,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 7,
+        "processedBytes": 2226,
+        "physicalInputBytes": 2226,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 44,
+        "peakMemoryBytes": 408,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 1,
+          "wallTimeMillis": 1,
+          "processedRows": 1,
+          "processedBytes": 44,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 1,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 1,
+              "cpuTimeMillis": 2,
+              "wallTimeMillis": 2,
+              "processedRows": 7,
+              "processedBytes": 2226,
+              "physicalInputBytes": 2226,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "SELECT count(*) FROM bench.silver.q10_evolution_demo FOR VERSION AS OF 2492711815277284993",
+      "QueryId": "20261013_210935_00164_tqu2s",
+      "Rows": [
+        [
+          10
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "_col0",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 6,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 6,
+        "planningTimeMillis": 18,
+        "analysisTimeMillis": 10,
+        "cpuTimeMillis": 1,
+        "wallTimeMillis": 1,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 51,
+        "finishingTimeMillis": 7,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 10,
+        "processedBytes": 0,
+        "physicalInputBytes": 0,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 44,
+        "peakMemoryBytes": 304,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 5,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 5,
+          "cpuTimeMillis": 1,
+          "wallTimeMillis": 1,
+          "processedRows": 1,
+          "processedBytes": 44,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 1,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 1,
+              "cpuTimeMillis": 0,
+              "wallTimeMillis": 0,
+              "processedRows": 10,
+              "processedBytes": 0,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "ALTER TABLE bench.silver.q10_evolution_demo EXECUTE rollback_to_snapshot(2492711815277284993)",
+      "QueryId": "20261013_210935_00165_tqu2s",
+      "Rows": [],
+      "Columns": [
+        {
+          "name": "rows",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 1,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 1,
+        "planningTimeMillis": 3,
+        "analysisTimeMillis": 11,
+        "cpuTimeMillis": 4,
+        "wallTimeMillis": 27,
+        "queuedTimeMillis": 1,
+        "elapsedTimeMillis": 61,
+        "finishingTimeMillis": 0,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 0,
+        "processedBytes": 0,
+        "physicalInputBytes": 0,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 0,
+        "peakMemoryBytes": 0,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 4,
+          "wallTimeMillis": 27,
+          "processedRows": 0,
+          "processedBytes": 0,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": true,
+          "subStages": []
+        }
+      }
+    },
+    {
+      "SQL": "SELECT * FROM bench.silver.q10_evolution_demo ORDER BY custkey",
+      "QueryId": "20261013_210935_00166_tqu2s",
+      "Rows": [
+        [
+          1,
+          "Customer#000000001",
+          711.56,
+          "MOROCCO",
+          "IVhzIApeRb ot,c,E",
+          "25-989-741-2988",
+          "to the even, regular platelets. regular, ironic epitaphs nag e",
+          null
+        ],
+        [
+          2,
+          "Customer#000000002",
+          121.65,
+          "JORDAN",
+          "XSTf4,NCwDVaWNe6tEgvwfmRchLXak",
+          "23-768-687-3665",
+          "l accounts. blithely ironic theodolites integrate boldly: caref",
+          null
+        ],
+        [
+          3,
+          "Customer#000000003",
+          7498.12,
+          "ARGENTINA",
+          "MG9kdTD2WBHm",
+          "11-719-748-3364",
+          " deposits eat slyly ironic, even instructions. express foxes detect slyly. blithely even accounts abov",
+          null
+        ],
+        [
+          4,
+          "Customer#000000004",
+          2866.83,
+          "EGYPT",
+          "XxVSJsLAGtn",
+          "14-128-190-5944",
+          " requests. final, regular ideas sleep final accou",
+          null
+        ],
+        [
+          5,
+          "Customer#000000005",
+          794.47,
+          "CANADA",
+          "KvpyuHCplrB84WgAiGV6sYpZq7Tj",
+          "13-750-942-6364",
+          "n accounts will have to unwind. foxes cajole accor",
+          null
+        ],
+        [
+          6,
+          "Customer#000000006",
+          7638.57,
+          "SAUDI ARABIA",
+          "sKZz0CsnMD7mp4Xd0YrBvx,LREYKUWAh yVn",
+          "30-114-968-4951",
+          "tions. even deposits boost according to the slyly bold packages. final accounts cajole requests. furious",
+          null
+        ],
+        [
+          7,
+          "Customer#000000007",
+          9561.95,
+          "CHINA",
+          "TcGe5gaZNgVePxU5kRrvXBfkasDTea",
+          "28-190-982-9759",
+          "ainst the ironic, express theodolites. express, even pinto beans among the exp",
+          null
+        ],
+        [
+          8,
+          "Customer#000000008",
+          6819.74,
+          "PERU",
+          "I0B10bB0AymmC, 0PrRYBCP1yGJ8xcBPmWhl5",
+          "27-147-574-9335",
+          "among the slyly regular theodolites kindle blithely courts. carefully even theodolites haggle slyly along the ide",
+          null
+        ],
+        [
+          9,
+          "Customer#000000009",
+          8324.07,
+          "INDIA",
+          "xKiAFTjUsCuxfeleNqefumTrjS",
+          "18-338-906-3675",
+          "r theodolites according to the requests wake thinly excuses: pending requests haggle furiousl",
+          null
+        ],
+        [
+          10,
+          "Customer#000000010",
+          2753.54,
+          "ETHIOPIA",
+          "6LrEaV6KR6PLVcgl2ArL Q3rqzLzcT1 v2",
+          "15-741-346-9870",
+          "es regular deposits haggle. fur",
+          null
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "custkey",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        },
+        {
+          "name": "name",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "acctbal",
+          "type": "double",
+          "typeSignature": {
+            "rawType": "double",
+            "arguments": []
+          }
+        },
+        {
+          "name": "nation",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "address",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "phone",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "comment",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        },
+        {
+          "name": "quality_note",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 7,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 7,
+        "planningTimeMillis": 10,
+        "analysisTimeMillis": 6,
+        "cpuTimeMillis": 4,
+        "wallTimeMillis": 4,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 35,
+        "finishingTimeMillis": 2,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 10,
+        "processedBytes": 2226,
+        "physicalInputBytes": 2226,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 4780,
+        "peakMemoryBytes": 5288,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 1,
+          "wallTimeMillis": 1,
+          "processedRows": 10,
+          "processedBytes": 2016,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 5,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 5,
+              "cpuTimeMillis": 2,
+              "wallTimeMillis": 2,
+              "processedRows": 10,
+              "processedBytes": 2764,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "2",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 1,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 1,
+                  "cpuTimeMillis": 1,
+                  "wallTimeMillis": 1,
+                  "processedRows": 10,
+                  "processedBytes": 2226,
+                  "physicalInputBytes": 2226,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SQL": "SELECT snapshot_id, parent_id, operation FROM bench.silver.\"q10_evolution_demo$snapshots\" ORDER BY committed_at",
+      "QueryId": "20261013_210935_00167_tqu2s",
+      "Rows": [
+        [
+          2492711815277284993,
+          null,
+          "append"
+        ],
+        [
+          3446505796397141433,
+          2492711815277284993,
+          "delete"
+        ]
+      ],
+      "Columns": [
+        {
+          "name": "snapshot_id",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        },
+        {
+          "name": "parent_id",
+          "type": "bigint",
+          "typeSignature": {
+            "rawType": "bigint",
+            "arguments": []
+          }
+        },
+        {
+          "name": "operation",
+          "type": "varchar",
+          "typeSignature": {
+            "rawType": "varchar",
+            "arguments": [
+              {
+                "kind": "LONG",
+                "value": 2147483647
+              }
+            ]
+          }
+        }
+      ],
+      "Stats": {
+        "state": "FINISHED",
+        "queued": false,
+        "scheduled": true,
+        "progressPercentage": 100.0,
+        "runningPercentage": 0.0,
+        "nodes": 1,
+        "totalSplits": 7,
+        "queuedSplits": 0,
+        "runningSplits": 0,
+        "completedSplits": 7,
+        "planningTimeMillis": 11,
+        "analysisTimeMillis": 8,
+        "cpuTimeMillis": 9,
+        "wallTimeMillis": 14,
+        "queuedTimeMillis": 0,
+        "elapsedTimeMillis": 43,
+        "finishingTimeMillis": 2,
+        "physicalInputTimeMillis": 0,
+        "processedRows": 2,
+        "processedBytes": 1728,
+        "physicalInputBytes": 1728,
+        "physicalWrittenBytes": 0,
+        "internalNetworkInputBytes": 340,
+        "peakMemoryBytes": 704,
+        "spilledBytes": 0,
+        "rootStage": {
+          "stageId": "0",
+          "state": "FINISHED",
+          "done": true,
+          "nodes": 1,
+          "totalSplits": 1,
+          "queuedSplits": 0,
+          "runningSplits": 0,
+          "completedSplits": 1,
+          "cpuTimeMillis": 1,
+          "wallTimeMillis": 1,
+          "processedRows": 2,
+          "processedBytes": 170,
+          "physicalInputBytes": 0,
+          "failedTasks": 0,
+          "coordinatorOnly": false,
+          "subStages": [
+            {
+              "stageId": "1",
+              "state": "FINISHED",
+              "done": true,
+              "nodes": 1,
+              "totalSplits": 5,
+              "queuedSplits": 0,
+              "runningSplits": 0,
+              "completedSplits": 5,
+              "cpuTimeMillis": 3,
+              "wallTimeMillis": 5,
+              "processedRows": 2,
+              "processedBytes": 170,
+              "physicalInputBytes": 0,
+              "failedTasks": 0,
+              "coordinatorOnly": false,
+              "subStages": [
+                {
+                  "stageId": "2",
+                  "state": "FINISHED",
+                  "done": true,
+                  "nodes": 1,
+                  "totalSplits": 1,
+                  "queuedSplits": 0,
+                  "runningSplits": 0,
+                  "completedSplits": 1,
+                  "cpuTimeMillis": 5,
+                  "wallTimeMillis": 8,
+                  "processedRows": 2,
+                  "processedBytes": 1728,
+                  "physicalInputBytes": 1728,
+                  "failedTasks": 0,
+                  "coordinatorOnly": false,
+                  "subStages": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "SchemaEvolution": {
+    "Rows": 10,
+    "NullQualityNote": 10,
+    "DataFilesUnchanged": true,
+    "DDL": "CREATE TABLE bench.silver.q10_evolution_demo (\n   custkey bigint,\n   name varchar,\n   acctbal double,\n   nation varchar,\n   address varchar,\n   phone varchar,\n   comment varchar,\n   quality_note varchar\n)\nWITH (\n   format = 'PARQUET',\n   format_version = 2,\n   location = 's3://bench/warehouse/q10_evolution_demo-87fbe106e07346adabb5c61bdfdd89d6',\n   max_commit_retry = 4\n)"
+  },
+  "OriginalSnapshotId": 2492711815277284993,
+  "RecoveredErrors": [
+    {
+      "message": "line 1:60: mismatched input 'table'. Expecting: <expression>, <identifier>",
+      "errorCode": 1,
+      "errorName": "SYNTAX_ERROR",
+      "errorType": "USER_ERROR",
+      "errorLocation": {
+        "lineNumber": 1,
+        "columnNumber": 60
+      },
+      "failureInfo": {
+        "type": "io.trino.sql.parser.ParsingException",
+        "message": "line 1:60: mismatched input 'table'. Expecting: <expression>, <identifier>",
+        "cause": {
+          "type": "org.antlr.v4.runtime.InputMismatchException",
+          "suppressed": [],
+          "stack": [
+            "org.antlr.v4.runtime.DefaultErrorStrategy.sync(DefaultErrorStrategy.java:270)",
+            "io.trino.grammar.sql.SqlBaseParser.callArgument(SqlBaseParser.java:21292)",
+            "io.trino.grammar.sql.SqlBaseParser.statement(SqlBaseParser.java:4305)",
+            "io.trino.grammar.sql.SqlBaseParser.singleStatement(SqlBaseParser.java:348)",
+            "io.trino.sql.parser.SqlParser.invokeParser(SqlParser.java:172)",
+            "io.trino.sql.parser.SqlParser.invokeParser(SqlParser.java:125)",
+            "io.trino.sql.parser.SqlParser.createStatement(SqlParser.java:90)",
+            "io.trino.execution.QueryPreparer.prepareQuery(QueryPreparer.java:54)",
+            "io.trino.dispatcher.DispatchManager.createQueryInternal(DispatchManager.java:225)",
+            "io.trino.dispatcher.DispatchManager.lambda$createQuery$0(DispatchManager.java:194)",
+            "io.opentelemetry.context.Context.lambda$wrap$1(Context.java:241)",
+            "io.airlift.concurrent.BoundedExecutor.drainQueue(BoundedExecutor.java:79)",
+            "io.trino.$gen.Trino_476____20261013_193544_2.run(Unknown Source)",
+            "java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)",
+            "java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)",
+            "java.base/java.lang.Thread.run(Thread.java:1447)"
+          ],
+          "errorInfo": {
+            "code": 65536,
+            "name": "GENERIC_INTERNAL_ERROR",
+            "type": "INTERNAL_ERROR"
+          }
+        },
+        "suppressed": [],
+        "stack": [
+          "io.trino.sql.parser.ErrorHandler.syntaxError(ErrorHandler.java:108)",
+          "org.antlr.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:41)",
+          "org.antlr.v4.runtime.Parser.notifyErrorListeners(Parser.java:544)",
+          "org.antlr.v4.runtime.DefaultErrorStrategy.reportInputMismatch(DefaultErrorStrategy.java:327)",
+          "org.antlr.v4.runtime.DefaultErrorStrategy.reportError(DefaultErrorStrategy.java:139)",
+          "io.trino.grammar.sql.SqlBaseParser.callArgument(SqlBaseParser.java:21318)",
+          "io.trino.grammar.sql.SqlBaseParser.statement(SqlBaseParser.java:4305)",
+          "io.trino.grammar.sql.SqlBaseParser.singleStatement(SqlBaseParser.java:348)",
+          "io.trino.sql.parser.SqlParser.invokeParser(SqlParser.java:172)",
+          "io.trino.sql.parser.SqlParser.invokeParser(SqlParser.java:125)",
+          "io.trino.sql.parser.SqlParser.createStatement(SqlParser.java:90)",
+          "io.trino.execution.QueryPreparer.prepareQuery(QueryPreparer.java:54)",
+          "io.trino.dispatcher.DispatchManager.createQueryInternal(DispatchManager.java:225)",
+          "io.trino.dispatcher.DispatchManager.lambda$createQuery$0(DispatchManager.java:194)",
+          "io.opentelemetry.context.Context.lambda$wrap$1(Context.java:241)",
+          "io.airlift.concurrent.BoundedExecutor.drainQueue(BoundedExecutor.java:79)",
+          "io.trino.$gen.Trino_476____20261013_193544_2.run(Unknown Source)",
+          "java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)",
+          "java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)",
+          "java.base/java.lang.Thread.run(Thread.java:1447)"
+        ],
+        "errorInfo": {
+          "code": 1,
+          "name": "SYNTAX_ERROR",
+          "type": "USER_ERROR"
+        },
+        "errorLocation": {
+          "lineNumber": 1,
+          "columnNumber": 60
+        }
+      }
+    }
+  ],
+  "Recovery": {
+    "RowsBefore": 10,
+    "RowsAfterDelete": 7,
+    "TimeTravelRows": 10,
+    "RowsAfterRollback": 10,
+    "DeleteSQL": "DELETE FROM bench.silver.q10_evolution_demo WHERE custkey IN (1, 2, 3)",
+    "RollbackSQL": "ALTER TABLE bench.silver.q10_evolution_demo EXECUTE rollback_to_snapshot(2492711815277284993)",
+    "RestoredRowsMatch": true,
+    "QualityNoteStillPresent": true
+  },
+  "Snapshots": [
+    [
+      2492711815277284993,
+      null,
+      "append"
+    ],
+    [
+      3446505796397141433,
+      2492711815277284993,
+      "delete"
+    ]
+  ],
+  "SparkVerification": {
+    "Version": "3.5.3",
+    "IcebergVersion": "1.7.1",
+    "Connection": "jdbc:hive2://localhost:10000/default",
+    "Execution": "docker compose exec --interactive=false -T spark-thrift; Beeline; --silent=true --showHeader=false --outputformat=tsv2",
+    "BronzeCounts": {
+      "customer": 1500000,
+      "orders": 15000000,
+      "lineitem": 59986052,
+      "nation": 25
+    },
+    "CustomerNationSample": [
+      [
+        1,
+        "Customer#000000001",
+        "MOROCCO"
+      ],
+      [
+        2,
+        "Customer#000000002",
+        "JORDAN"
+      ],
+      [
+        3,
+        "Customer#000000003",
+        "ARGENTINA"
+      ],
+      [
+        4,
+        "Customer#000000004",
+        "EGYPT"
+      ],
+      [
+        5,
+        "Customer#000000005",
+        "CANADA"
+      ]
+    ],
+    "RestoredDemoCounts": [
+      [
+        10,
+        0
+      ]
+    ],
+    "RestoredDemoSample": [
+      [
+        1,
+        "Customer#000000001",
+        "MOROCCO",
+        null
+      ],
+      [
+        2,
+        "Customer#000000002",
+        "JORDAN",
+        null
+      ],
+      [
+        3,
+        "Customer#000000003",
+        "ARGENTINA",
+        null
+      ]
+    ],
+    "Source": "Successful Beeline output captured during the current task; counts and a join from all four actual Bronze tables; restored demo rows and quality_note checked in Spark"
+  },
+  "SQLFiles": [
+    "section6-trino.sql",
+    "section6-spark.sql"
+  ]
+}
